@@ -29,7 +29,7 @@ def pregunta_01():
         for i in fullData:
             suma+= int(i[1])
         
-        return 214
+        return suma
 
 
 def pregunta_02():
