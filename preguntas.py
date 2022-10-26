@@ -150,7 +150,7 @@ def pregunta_05():
         sort = list(sorted(minmax.items()))
         final = []
         for i in sort:
-            final.append((i[0],i[1][0],i[1][1]))
+            final.append((i[0],int(i[1][0]),int(i[1][1])))
         return final
 
 
