@@ -147,7 +147,11 @@ def pregunta_05():
                 minmax[row[0]] = (row[1],row[1])
             if(current!=-1):
                 minmax[row[0]] = (max(current[0],row[1]),min(current[1],row[1]))
-        return list(sorted(minmax.items()))
+        sort = list(sorted(minmax.items()))
+        final = []
+        for i in sort:
+            final.append((i[0],i[1][0],i[1][1]))
+        return final
 
 
 def pregunta_06():
@@ -177,7 +181,6 @@ def pregunta_06():
         clear_data = [line.replace("\n", "") for line in dataInfo]
         fullData = [line.split() for line in clear_data]
     
-        minmax = []
         keys={}
         for row in fullData:
             for i in row[4].split(","):
@@ -188,7 +191,11 @@ def pregunta_06():
                 if(currentKeyValue !=-1):
                     keys[str(i[:3])] = (min(currentKeyValue[0],currentValue),max(currentKeyValue[1],currentValue))
 
-        return list(sorted(keys.items()))
+        sort = list(sorted(keys.items()))
+        final = []
+        for i in sort:
+            final.append((i[0],i[1][0],i[1][1]))
+        return final
 
 
 def pregunta_07():
@@ -219,11 +226,12 @@ def pregunta_07():
     
         rep = {}
         for row in fullData:
-            current = rep.get(row[1],-1)
+            index = int(row[1])
+            current = rep.get(index,-1)
             if(current == -1):
-                rep[row[1]] = [row[0]]
+                rep[index] = [row[0]]
             else:
-                rep[row[1]].append(row[0])
+                rep[index].append(row[0])
             #print(current,type(current))
         return list(sorted(rep.items()))
 
@@ -266,7 +274,7 @@ def pregunta_08():
         sort = list(sorted(rep.items()))
         final = []
         for i in sort:
-            final.append((i[0],list(sorted(set(i[1])))))
+            final.append((int(i[0]),list(sorted(set(i[1])))))
         return final
 
 
